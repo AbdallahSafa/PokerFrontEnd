@@ -4,7 +4,7 @@ import PokerApp from './components/poker/PokerApp';
 function App() {
   return (
     <div className="App">
-      <PokerApp />
+      <PokerApp/>
     </div>
   );
 }
