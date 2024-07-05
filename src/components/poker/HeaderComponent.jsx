@@ -1,4 +1,6 @@
 import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {useAuth} from "./security/AuthContext";
 
 export default function HeaderComponent() {
     //const location = useLocation();
@@ -20,6 +22,9 @@ export default function HeaderComponent() {
 
     //<header className="border-bottom border-light border-3  p-2 ">
 
+    const authContext = useAuth();
+    const isAuthenticated = authContext.auth;
+
     return (
         <header className= "border-bottom border-light bg-light border-3  p-2">
             <div className="container">
@@ -37,7 +42,7 @@ export default function HeaderComponent() {
                         </div>
                         <ul className="navbar-nav">
                             <li className="nav-item fs-5"><Link className="nav-link" to="/login">Login</Link></li>
-                            <li className="nav-item fs-5"><Link className="nav-link" to="/logout">Logout</Link></li>
+                            <li className="nav-item fs-5"> {isAuthenticated && <Link className="nav-link" to="/logout">Logout</Link>} </li>
                         </ul>
                     </nav>
                 </div>

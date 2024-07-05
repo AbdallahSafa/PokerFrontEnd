@@ -9,25 +9,27 @@ import ListPokerGameComponent from "./ListGameComponent";
 import HeaderComponent from "./HeaderComponent";
 import FooterComponent from "./FooterComponent";
 import LogoutComponent from "./LogoutComponent";
-
+import AuthProvider from "./security/AuthContext";
 
 
 
 export default function PokerApp() {
     return (
         <div className="PokerApp">
-            <BrowserRouter>
-                <HeaderComponent/>
-                <Routes>
-                    <Route path="/" element={<LoginComponent />} />
-                    <Route path="/login" element={<LoginComponent />} />
-                    <Route path="/welcome/:username" element={<WelcomeComponent />} />
-                    <Route path='*' element={<Error />} />
-                    <Route path="/games" element={<ListPokerGameComponent />} />
-                    <Route path="/logout" element={<LogoutComponent />} />
-                </Routes>
-            </BrowserRouter>
-            {/*<FooterComponent/>*/}
+            <AuthProvider>
+                <BrowserRouter>
+                    <HeaderComponent/>
+                    <Routes>
+                        <Route path="/" element={<LoginComponent />} />
+                        <Route path="/login" element={<LoginComponent />} />
+                        <Route path="/welcome/:username" element={<WelcomeComponent />} />
+                        <Route path='*' element={<Error />} />
+                        <Route path="/games" element={<ListPokerGameComponent />} />
+                        <Route path="/logout" element={<LogoutComponent />} />
+                    </Routes>
+                </BrowserRouter>
+                {/*<FooterComponent/>*/}
+            </AuthProvider>
         </div>
     );
 }

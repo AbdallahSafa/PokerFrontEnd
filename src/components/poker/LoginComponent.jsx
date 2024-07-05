@@ -1,12 +1,13 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import './LoginComponent.css';
+import {useAuth} from "./security/AuthContext";
 
 export default function LoginComponent() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [loginStatus, setLoginStatus] = useState(null);
     const nav = useNavigate();
+    const authContext = useAuth();
 
     function userChange(event) {
         setUsername(event.target.value);
@@ -19,11 +20,10 @@ export default function LoginComponent() {
     function handleLogin() {
         // Replace this with your actual login logic
         if (username === 'user' && password === 'pass') {
-            setLoginStatus('success');
+            authContext.login(username);
             nav(`/welcome/${username}`)
         } else {
-            setLoginStatus('fail');
-            nav('error')
+            authContext.logout();
         }
     }
 
@@ -53,8 +53,8 @@ export default function LoginComponent() {
                 <div className="FormField">
                     <button className="FormField_Button" onClick={handleLogin}>Login</button>
                 </div>
-                {loginStatus === 'success' && <p className="SuccessMessage">Login successful!</p>}
-                {loginStatus === 'fail' && <p className="ErrorMessage">Login failed. Try again.</p>}
+                {authContext.auth === true && <p className="SuccessMessage">Login successful!</p>}
+                {authContext.auth === false && <p className="ErrorMessage">Login failed. Try again.</p>}
             </div>
         </div>
     );
