@@ -39,7 +39,7 @@ body {
     margin: 10px 0;
 }
 
-.signup-button {
+.go-to-games-button {
     margin-top: 30px;
     padding: 10px 20px;
     font-size: 1.25rem;
@@ -51,6 +51,6 @@ body {
     transition: background-color 0.3s;
 }
 
-.signup-button:hover {
+.go-to-games-button:hover {
     background-color: #0056b3;
 }

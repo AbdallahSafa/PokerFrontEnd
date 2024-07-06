@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './WelcomeComponent.css';
+import {Link} from "react-router-dom";
 
 export default function WelcomeComponent() {
     return (
@@ -18,15 +19,14 @@ export default function WelcomeComponent() {
                     Pokes provides the tools you need to take your game to the next level.
                 </p>
                 <p>
-                    Sign up today and start tracking your progress!
+                    Start tracking your progress!
                 </p>
                 <motion.button
-                    className="signup-button"
+                    className="go-to-games-button"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    onClick={() => window.location.href = '/signup'}
-                >
-                    Get Started
+                    >
+                    <Link to="/games" style={{ color: 'inherit', textDecoration: 'none' }}>Go track your games!</Link>
                 </motion.button>
             </motion.div>
         </div>
