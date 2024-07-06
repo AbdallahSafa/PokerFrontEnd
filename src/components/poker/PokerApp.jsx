@@ -6,11 +6,9 @@ import {
     Route,
     BrowserRouter,
     useNavigate,
-    useParams,
-    Link,
-    useLocation,
     Navigate
-} from 'react-router-dom';
+}
+from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import LoginComponent from './LoginComponent';
 import WelcomeComponent from "./WelcomeComponent";

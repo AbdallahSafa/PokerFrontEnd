@@ -1,0 +1,15 @@
+.navbar .nav-link {
+    color: white !important;
+}
+
+.navbar .nav-link:hover {
+    color: #ccc !important;
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+.nav-item.fs-5 .nav-link {
+    color: white !important;
+}
