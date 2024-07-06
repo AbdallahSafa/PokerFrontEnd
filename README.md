@@ -4,7 +4,6 @@ Welcome to the frontend repository of the Pokes website, a platform where you ca
 
 ## Table of Contents
 
-- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Available Scripts](#available-scripts)
@@ -13,17 +12,27 @@ Welcome to the frontend repository of the Pokes website, a platform where you ca
 - [License](#license)
 - [Contact](#contact)
 
-
 ## Installation
 
 To get started with the Pokes frontend, follow these steps:
 
 1. **Clone the repository**
 
+    ```bash
+    git clone https://github.com/yourusername/pokes-frontend.git
+    cd pokes-frontend
+    ```
+
+2. **Install dependencies**
+
+    ```bash
+    npm install
+    ```
+
+## Usage
+
+To start the development server, run:
+
 ```bash
-git clone https://github.com/yourusername/pokes-frontend.git
-cd pokes-frontend
-
-
-
+npm start
 
