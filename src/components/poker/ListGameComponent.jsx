@@ -2,6 +2,7 @@ import {deleteById, retrieveGamesUser} from "./api/ApiService";
 import {useState,useEffect} from "react";
 import './ListGameComponent.css';
 import {useAuth} from "./security/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 export default function ListPokerGameComponent() {
 
@@ -10,6 +11,7 @@ export default function ListPokerGameComponent() {
     const [message,setMessage] = useState(null);
     const authContext = useAuth();
     const username = authContext.username;
+    const nav = useNavigate();
 
     useEffect(
         () => {
@@ -32,6 +34,11 @@ export default function ListPokerGameComponent() {
             .catch(error => console.log(error))
     }
 
+    function updateGame(id){
+        console.log("update clicked")
+        nav(`/games/${id}`)
+    }
+
 
     return (
         <div className= "styleTable">
@@ -51,12 +58,21 @@ export default function ListPokerGameComponent() {
                     {
                         games.map(
                             game =>
-                                <tr key = {game.id}>
+                                <tr key={game.id}>
                                     <td>{game.date}</td>
                                     <td>{game.buyIn}</td>
                                     <td>{game.endNight}</td>
                                     <td>{game.netNight}</td>
-                                    <td> <button className = "btn btn-warning" onClick= {() => deleteGame(game.id)}> Delete</button></td>
+                                    <td>
+                                        <button className="btn btn-warning"
+                                                onClick={() => deleteGame(game.id)}> Delete
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-warning"
+                                                onClick={() => updateGame(game.id)}> Update
+                                        </button>
+                                    </td>
                                 </tr>
                         )
                     }

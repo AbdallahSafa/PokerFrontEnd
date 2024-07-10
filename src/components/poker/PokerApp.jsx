@@ -15,6 +15,7 @@ import WelcomeComponent from "./WelcomeComponent";
 import Error from "./ErrorComponent";
 import ListPokerGameComponent from "./ListGameComponent";
 import HeaderComponent from "./HeaderComponent";
+import PokerGameComponent from "./PokerGameComponent";
 import FooterComponent from "./FooterComponent";
 import LogoutComponent from "./LogoutComponent";
 import AuthProvider, {useAuth} from "./security/AuthContext";
@@ -53,6 +54,8 @@ export default function PokerApp() {
                                 <LogoutComponent />
                             </AuthenticatedRoute>
                         } />
+                        <Route path="/games:id" element={<PokerGameComponent />} />
+
                     </Routes>
                 </BrowserRouter>
                 {/*<FooterComponent/>*/}
