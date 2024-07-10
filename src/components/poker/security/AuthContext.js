@@ -8,9 +8,13 @@ export default function AuthProvider({ children }) {
 
 
     const [auth, setAuth] = useState(null);
+    const [username, setUsername] = useState(null);
 
-    const login = () => {
+
+
+    const login = (username) => {
         setAuth(true);
+        setUsername(username);
     };
 
     const logout = () => {
@@ -18,7 +22,7 @@ export default function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={ { auth, login, logout } }>
+        <AuthContext.Provider value={ { auth, login, logout,username} }>
             {children}
         </AuthContext.Provider>
     );

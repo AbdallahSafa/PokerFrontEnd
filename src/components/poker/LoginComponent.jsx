@@ -18,8 +18,7 @@ export default function LoginComponent() {
     }
 
     function handleLogin() {
-        // Replace this with your actual login logic
-        if (username === 'user' && password === 'pass') {
+        if (username === 'safa' && password === 'safa') {
             authContext.login(username);
             nav(`/welcome/${username}`)
         } else {

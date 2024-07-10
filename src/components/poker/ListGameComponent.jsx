@@ -1,12 +1,15 @@
 import {deleteById, retrieveGamesUser} from "./api/ApiService";
 import {useState,useEffect} from "react";
 import './ListGameComponent.css';
+import {useAuth} from "./security/AuthContext";
 
 export default function ListPokerGameComponent() {
 
 
     const [games,setGames] = useState([]);
     const [message,setMessage] = useState(null);
+    const authContext = useAuth();
+    const username = authContext.username;
 
     useEffect(
         () => {
@@ -15,13 +18,13 @@ export default function ListPokerGameComponent() {
     )
 
     function refreshGames ()  {
-        retrieveGamesUser("safa")
+        retrieveGamesUser(username)
             .then(response => setGames(response.data))
             .catch(error => console.log(error))
     }
 
     function deleteGame(id) {
-        deleteById("safa",id)
+        deleteById(username,id)
             .then(response => {
                 setMessage(`Delete of game ${id} successful`)
                 refreshGames();
