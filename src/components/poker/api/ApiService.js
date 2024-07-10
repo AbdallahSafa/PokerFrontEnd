@@ -10,9 +10,11 @@ export const retrieveGamesUser = (username) => {
 }
 
 
+export const getGameById = (username,id) => {
+    return apiClient.get(`/users/${username}/list-poker-games/${id}`);
+}
 
+export const deleteById = (username,id) => {
+    return apiClient.delete(`/users/${username}/list-poker-games/${id}`);
+}
 
-// export const retrieveGamesUser = axios.create({
-//     baseURL: 'http://localhost:8080/users/safa/list-poker-games', // Adjust to your backend URL
-//     withCredentials: true,
-// });
