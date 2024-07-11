@@ -27,8 +27,8 @@ export default function PokerGameComponent(){
             .then(response => {
                 console.log(response.data)
                 setBuyIn(response.data.buyIn)
-            setDate(response.data.date)
-            setEndNight(response.data.endNight)})
+                setDate(response.data.date)
+                setEndNight(response.data.endNight)})
             .catch(error => console.log(error))
     }
 
@@ -65,10 +65,10 @@ export default function PokerGameComponent(){
                                     name = "date" component="div" className="alert alert-warning"
                                 </ErrorMessage>
                                 <ErrorMessage>
-                                    name = "date" component="div" className="alert alert-warning"
+                                    name = "buyIn" component="div" className="alert alert-warning"
                                 </ErrorMessage>
                                 <ErrorMessage>
-                                    name = "date" component="div" className="alert alert-warning"
+                                    name = "endNight" component="div" className="alert alert-warning"
                                 </ErrorMessage>
 
                                 <fieldset className="form-group">
