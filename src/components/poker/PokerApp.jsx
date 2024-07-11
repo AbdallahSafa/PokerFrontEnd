@@ -54,7 +54,7 @@ export default function PokerApp() {
                                 <LogoutComponent />
                             </AuthenticatedRoute>
                         } />
-                        <Route path="/games:id" element={<PokerGameComponent />} />
+                        <Route path="/games/:id" element={<PokerGameComponent/>} />
 
                     </Routes>
                 </BrowserRouter>
