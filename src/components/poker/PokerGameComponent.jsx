@@ -2,7 +2,7 @@ import {useParams} from "react-router-dom";
 import {useAuth} from "./security/AuthContext";
 import {getGameById} from "./api/ApiService";
 import {useEffect, useState} from "react";
-import {Field, Form, Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import './PokerGameComponent.css'
 
 export default function PokerGameComponent(){
@@ -36,16 +36,41 @@ export default function PokerGameComponent(){
 
     }
 
+    function validate(values){
+        let errors = {
+
+        }
+        if(values.buyIn <= 0){
+            errors.buyIn = "Enter a valid buy-in"
+        }
+        if (values.date === ""){
+            errors.date = "Enter a valid date"
+        }
+        if (values.endNight <= 0){
+            errors.endNight = "Enter a valid end of night"
+        }
+    }
+
     return (
         <div className = "gameUpdate">
             <h1>Game Information</h1>
             <div>
-                <Formik className ="updateBox" initialValues={ {date,buyIn,endNight}} enableReinitialize={true}
+                <Formik className ="updateBox" initialValues={ {date,buyIn,endNight}} enableReinitialize={true} validate={validate} validateOnChange={false} validateOnBlur={false}
                     onSubmit={onSubmit}>
                     {
                     (props) => (
                         <div>
                             <Form>
+                                <ErrorMessage>
+                                    name = "date" component="div" className="alert alert-warning"
+                                </ErrorMessage>
+                                <ErrorMessage>
+                                    name = "date" component="div" className="alert alert-warning"
+                                </ErrorMessage>
+                                <ErrorMessage>
+                                    name = "date" component="div" className="alert alert-warning"
+                                </ErrorMessage>
+
                                 <fieldset className="form-group">
                                     <label>date</label>
                                     <Field className="form-control" type="text" name="date"/>
