@@ -1,9 +1,5 @@
 import axios from 'axios'
-import {useReducedMotion} from "framer-motion";
-
-const apiClient = axios.create(
-    {baseURL: 'http://localhost:8080', withCredentials: true}
-);
+import {apiClient} from './ApiClient'
 
 export const retrieveGamesUser = (username) => {
     return apiClient.get(`/users/${username}/list-poker-games`);
@@ -24,4 +20,12 @@ export const updateGame = (username,id,game) => {
 
 export const createGame = (username,game) => {
     return apiClient.post(`/users/${username}/list-poker-games/`,game);
+}
+
+export const authenticateService = (token) => {
+    return apiClient.options('/auth',{
+        headers:{
+            Authorization: token
+        }
+    });
 }

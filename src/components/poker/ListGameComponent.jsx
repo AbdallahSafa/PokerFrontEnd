@@ -34,6 +34,7 @@ export default function ListPokerGameComponent() {
             .catch(error => console.log(error))
     }
 
+
     function updateGame(id){
         console.log("update clicked")
         nav(`/games/${id}`)
@@ -42,7 +43,6 @@ export default function ListPokerGameComponent() {
     function addNewGame(){
         nav(`/games/-1`)
     }
-
 
     return (
         <div className="listWrapper">

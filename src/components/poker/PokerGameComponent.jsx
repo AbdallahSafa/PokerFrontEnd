@@ -66,7 +66,6 @@ export default function PokerGameComponent(){
     //dont work
     function validate(values){
         let errors = {
-
         }
         if(values.buyIn <= 0){
             errors.buyIn = "Enter a valid buy-in"
@@ -92,14 +91,14 @@ export default function PokerGameComponent(){
                         (props) => (
                             <div>
                                 <Form>
-
                                     <ErrorMessage name="date" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="buyIn" component="div" className="alert alert-warning"/>
                                     <ErrorMessage name="endNight" component="div" className="alert alert-warning"/>
 
                                     <fieldset className="form-group">
                                         <label>date</label>
-                                        <Field className="form-control" type="text" name="date"/>
+                                        {/*may need to be changed to type = "text" in the future*/}
+                                        <Field className="form-control" type="date" name="date"/>
                                     </fieldset>
                                     <fieldset className="form-group">
                                         <label>buy-in</label>

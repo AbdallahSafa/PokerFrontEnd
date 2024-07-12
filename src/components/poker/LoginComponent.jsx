@@ -17,12 +17,9 @@ export default function LoginComponent() {
         setPassword(event.target.value);
     }
 
-    function handleLogin() {
-        if (username === 'safa' && password === 'safa') {
-            authContext.login(username);
+    async function handleLogin() {
+        if (await authContext.login(username,password)) {
             nav(`/welcome/${username}`)
-        } else {
-            authContext.logout();
         }
     }
 
