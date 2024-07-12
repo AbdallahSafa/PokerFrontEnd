@@ -21,3 +21,7 @@ export const deleteById = (username,id) => {
 export const updateGame = (username,id,game) => {
     return apiClient.put(`/users/${username}/list-poker-games/${id}`,game);
 }
+
+export const createGame = (username,game) => {
+    return apiClient.post(`/users/${username}/list-poker-games/`,game);
+}

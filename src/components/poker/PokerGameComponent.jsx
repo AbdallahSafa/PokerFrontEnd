@@ -4,7 +4,8 @@ import {getGameById, updateGame} from "./api/ApiService";
 import {useEffect, useState} from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import './PokerGameComponent.css'
-import {testUsers} from "./api/ApiService";
+import {createGame} from "./api/ApiService";
+import moment from "moment";
 
 export default function PokerGameComponent(){
 
@@ -25,13 +26,16 @@ export default function PokerGameComponent(){
     )
 
     function retrieveGameById(){
-        getGameById(username,id)
-            .then(response => {
-                console.log(response.data)
-                setBuyIn(response.data.buyIn)
-                setDate(response.data.date)
-                setEndNight(response.data.endNight)})
-            .catch(error => console.log(error))
+        if (id !== "-1") {
+            getGameById(username, id)
+                .then(response => {
+                    console.log(response.data)
+                    setBuyIn(response.data.buyIn)
+                    setDate(response.data.date)
+                    setEndNight(response.data.endNight)
+                })
+                .catch(error => console.log(error))
+        }
     }
 
 
@@ -43,11 +47,23 @@ export default function PokerGameComponent(){
             endNight: values.endNight,
             netNight: values.endNight - values.buyIn
         }
-        updateGame(username,id,game)
-            .then(response => {navigate('/games')})
-            .catch (error => console.log(error))
+        if (id === -1){
+            createGame(username,game)
+                .then(response => {
+                    navigate('/games')
+                })
+                .catch(error => console.log(error))
+        }else {
+            updateGame(username, id, game)
+                .then(response => {
+                    navigate('/games')
+                })
+                .catch(error => console.log(error))
+        }
     }
 
+
+    //dont work
     function validate(values){
         let errors = {
 
@@ -55,12 +71,14 @@ export default function PokerGameComponent(){
         if(values.buyIn <= 0){
             errors.buyIn = "Enter a valid buy-in"
         }
-        if (values.date === ""){
+        if (values.date === "" || values.date === null ||! moment(values.date).isValid()) {
             errors.date = "Enter a valid date"
         }
         if (values.endNight <= 0){
             errors.endNight = "Enter a valid end of night"
         }
+        console.log(errors)
+        return errors
     }
 
     return (
@@ -74,15 +92,10 @@ export default function PokerGameComponent(){
                         (props) => (
                             <div>
                                 <Form>
-                                    <ErrorMessage>
-                                        name = "date" component="div" className="alert alert-warning"
-                                    </ErrorMessage>
-                                    <ErrorMessage>
-                                        name = "buyIn" component="div" className="alert alert-warning"
-                                    </ErrorMessage>
-                                    <ErrorMessage>
-                                        name = "endNight" component="div" className="alert alert-warning"
-                                    </ErrorMessage>
+
+                                    <ErrorMessage name="date" component="div" className="alert alert-warning"/>
+                                    <ErrorMessage name="buyIn" component="div" className="alert alert-warning"/>
+                                    <ErrorMessage name="endNight" component="div" className="alert alert-warning"/>
 
                                     <fieldset className="form-group">
                                         <label>date</label>

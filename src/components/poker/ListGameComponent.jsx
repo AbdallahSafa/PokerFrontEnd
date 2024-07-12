@@ -39,6 +39,10 @@ export default function ListPokerGameComponent() {
         nav(`/games/${id}`)
     }
 
+    function addNewGame(){
+        nav(`/games/-1`)
+    }
+
 
     return (
         <div className="listWrapper">
@@ -74,7 +78,7 @@ export default function ListPokerGameComponent() {
                 </tbody>
             </table>
         </div>
-            <div className="btn btn-success"> Add Game</div>
+            <div className="btn btn-success" onClick = {addNewGame}> Add Game</div>
         </div>
     );
 }
