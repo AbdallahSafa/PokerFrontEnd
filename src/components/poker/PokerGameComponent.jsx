@@ -1,9 +1,10 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useAuth} from "./security/AuthContext";
-import {getGameById} from "./api/ApiService";
+import {getGameById, updateGame} from "./api/ApiService";
 import {useEffect, useState} from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import './PokerGameComponent.css'
+import {testUsers} from "./api/ApiService";
 
 export default function PokerGameComponent(){
 
@@ -13,6 +14,7 @@ export default function PokerGameComponent(){
     const [buyIn,setBuyIn] = useState()
     const  [date,setDate] = useState()
     const [endNight,setEndNight] = useState()
+    const navigate = useNavigate()
 
 
 
@@ -32,8 +34,18 @@ export default function PokerGameComponent(){
             .catch(error => console.log(error))
     }
 
-    function onSubmit(values){
 
+    function onSubmit(values){
+        const game = {
+            id:id,
+            date: values.date,
+            buyIn: values.buyIn,
+            endNight: values.endNight,
+            netNight: values.endNight - values.buyIn
+        }
+        updateGame(username,id,game)
+            .then(response => {navigate('/games')})
+            .catch (error => console.log(error))
     }
 
     function validate(values){

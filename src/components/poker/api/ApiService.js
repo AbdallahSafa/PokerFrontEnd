@@ -18,3 +18,6 @@ export const deleteById = (username,id) => {
     return apiClient.delete(`/users/${username}/list-poker-games/${id}`);
 }
 
+export const updateGame = (username,id,game) => {
+    return apiClient.put(`/users/${username}/list-poker-games/${id}`,game);
+}
