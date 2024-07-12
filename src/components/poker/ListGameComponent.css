@@ -1,8 +1,8 @@
 .listWrapper {
     margin-top: 150px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight:bold;
-    font-size:16px;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .listContainer {
@@ -24,55 +24,39 @@
     color: #343a40;
 }
 
-.listContainer table {
-    width: 100%;
-    max-width: 100%; /* Ensure table does not exceed its container */
-    margin-bottom: 1rem;
-    color: #0080ff;
+.p-datatable {
+    margin-bottom: 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.table-hover tbody tr:hover {
+.p-datatable .p-datatable-header {
+    background-color: #343a40;
+    color: #fff;
+}
+.p-datatable .p-datatable-tbody > tr {
+    transition: background-color 0.3s;
+}
+
+.p-datatable .p-datatable-tbody > tr:hover {
     background-color: #f1f1f1;
 }
 
-.table-bordered {
-    border: 1px solid #dee2e6;
+.p-button-success.add-game-button {
+    display: block;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
 }
 
-.table-bordered th, .table-bordered td {
-    border: 1px solid #dee2e6;
+.positive-net-night {
+    color: green;
 }
 
-.thead-dark th {
-    color: #fff;
-    background-color: #343a40;
-    border-color: #454d55;
+.negative-net-night {
+    color: red;
 }
 
-.btn {
-    margin-right: 5px;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease;
-}
-
-.btn-danger {
-    background-color: #dc3545;
-    color: white;
-}
-
-.btn-danger:hover {
-    background-color: #2b0106;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #61ffed;
-}
-
-.alert {
-    margin-top: 10px;
-}

@@ -29,3 +29,7 @@ export const authenticateService = (token) => {
         }
     });
 }
+
+export const netProfitLoss = (username) => {
+    return apiClient.get(`/users/${username}/net`);
+}
