@@ -41,45 +41,40 @@ export default function ListPokerGameComponent() {
 
 
     return (
-        <div className= "styleTable">
-            <div className="container">
-                <h1>Welcome</h1>
-                {message && <div className="alert alert-success">{message}</div>}
-                <table className = "table table-striped">
-                    <thead>
-                    <tr>
-                        <th>date</th>
-                        <th>buy-in</th>
-                        <th>end of night</th>
-                        <th>net of night</th>
+        <div className="listWrapper">
+            <div className = "listContainer ">
+            <h1>Welcome</h1>
+            {message && <div className="alert alert-success">{message}</div>}
+            <table className="table table-hover ">
+                <thead className="thead-dark">
+                <tr>
+                    <th>Date</th>
+                    <th>Buy-in</th>
+                    <th>End of Night</th>
+                    <th>Net of Night</th>
+                </tr>
+                </thead>
+                <tbody>
+                {games.map(game => (
+                    <tr key={game.id}>
+                        <td>{game.date}</td>
+                        <td>{game.buyIn}</td>
+                        <td>{game.endNight}</td>
+                        <td>{game.netNight}</td>
+                        <td>
+                            <button className="btn btn-danger btn-sm mr-2" onClick={() => deleteGame(game.id)}>
+                                Delete
+                            </button>
+                            <button className="btn btn-primary btn-sm"  onClick={() => updateGame(game.id)}>
+                                Update
+                            </button>
+                        </td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {
-                        games.map(
-                            game =>
-                                <tr key={game.id}>
-                                    <td>{game.date}</td>
-                                    <td>{game.buyIn}</td>
-                                    <td>{game.endNight}</td>
-                                    <td>{game.netNight}</td>
-                                    <td>
-                                        <button className="btn btn-warning"
-                                                onClick={() => deleteGame(game.id)}> Delete
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-warning"
-                                                onClick={() => updateGame(game.id)}> Update
-                                        </button>
-                                    </td>
-                                </tr>
-                        )
-                    }
-                    </tbody>
-                </table>
-            </div>
+                ))}
+                </tbody>
+            </table>
         </div>
-
-);
+            <div className="btn btn-success"> Add Game</div>
+        </div>
+    );
 }

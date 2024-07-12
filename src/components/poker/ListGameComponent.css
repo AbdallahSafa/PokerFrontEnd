@@ -1,9 +1,78 @@
-.styleTable{
-    width: 100%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    border: 1px solid #ddd;
-    margin-top: 100px;
-    font-family: Arial, sans-serif;
+.listWrapper {
+    margin-top: 150px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight:bold;
+    font-size:16px;
 }
 
+.listContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 60%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.listContainer h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #343a40;
+}
+
+.listContainer table {
+    width: 100%;
+    max-width: 100%; /* Ensure table does not exceed its container */
+    margin-bottom: 1rem;
+    color: #0080ff;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table-bordered {
+    border: 1px solid #dee2e6;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+}
+
+.thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+}
+
+.btn {
+    margin-right: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #2b0106;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #61ffed;
+}
+
+.alert {
+    margin-top: 10px;
+}

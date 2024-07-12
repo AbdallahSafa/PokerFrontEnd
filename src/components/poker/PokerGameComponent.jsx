@@ -64,45 +64,47 @@ export default function PokerGameComponent(){
     }
 
     return (
-        <div className = "gameUpdate">
-            <h1>Game Information</h1>
-            <div>
-                <Formik className ="updateBox" initialValues={ {date,buyIn,endNight}} enableReinitialize={true} validate={validate} validateOnChange={false} validateOnBlur={false}
-                    onSubmit={onSubmit}>
-                    {
-                    (props) => (
-                        <div>
-                            <Form>
-                                <ErrorMessage>
-                                    name = "date" component="div" className="alert alert-warning"
-                                </ErrorMessage>
-                                <ErrorMessage>
-                                    name = "buyIn" component="div" className="alert alert-warning"
-                                </ErrorMessage>
-                                <ErrorMessage>
-                                    name = "endNight" component="div" className="alert alert-warning"
-                                </ErrorMessage>
+        <div className = "updateWrapper">
+            <div className = "gameUpdate">
+                <h1>Poker Session Details</h1>
+                <div>
+                    <Formik className ="updateBox" initialValues={ {date,buyIn,endNight}} enableReinitialize={true} validate={validate} validateOnChange={false} validateOnBlur={false}
+                        onSubmit={onSubmit}>
+                        {
+                        (props) => (
+                            <div>
+                                <Form>
+                                    <ErrorMessage>
+                                        name = "date" component="div" className="alert alert-warning"
+                                    </ErrorMessage>
+                                    <ErrorMessage>
+                                        name = "buyIn" component="div" className="alert alert-warning"
+                                    </ErrorMessage>
+                                    <ErrorMessage>
+                                        name = "endNight" component="div" className="alert alert-warning"
+                                    </ErrorMessage>
 
-                                <fieldset className="form-group">
-                                    <label>date</label>
-                                    <Field className="form-control" type="text" name="date"/>
-                                </fieldset>
-                                <fieldset className="form-group">
-                                    <label>buy-in</label>
-                                    <Field className="form-control" type="text" name="buyIn"/>
-                                </fieldset>
-                                <fieldset className="form-group">
-                                    <label>end of night</label>
-                                    <Field className="form-control" type="text" name="endNight"/>
-                                </fieldset>
-                                <div>
-                                    <button className="btn btn-success m-5" type="submit">Save</button>
-                                </div>
-                            </Form>
-                        </div>
-                    )
-                    }
-                </Formik>
+                                    <fieldset className="form-group">
+                                        <label>date</label>
+                                        <Field className="form-control" type="text" name="date"/>
+                                    </fieldset>
+                                    <fieldset className="form-group">
+                                        <label>buy-in</label>
+                                        <Field className="form-control" type="text" name="buyIn"/>
+                                    </fieldset>
+                                    <fieldset className="form-group">
+                                        <label>end of night</label>
+                                        <Field className="form-control" type="text" name="endNight"/>
+                                    </fieldset>
+                                    <div>
+                                        <button className="btn btn-success m-5" type="submit">Save</button>
+                                    </div>
+                                </Form>
+                            </div>
+                        )
+                        }
+                    </Formik>
+                </div>
             </div>
         </div>
     )

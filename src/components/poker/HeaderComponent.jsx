@@ -27,6 +27,7 @@ export default function HeaderComponent() {
     const isAuthenticated = authContext.auth;
 
     return (
+        <div className = "headerWrapper">
         <header className= "border-bottom border-dark bg-dark border-3  p-2 fixed-top">
             <div className="container">
                 <div className="row">
@@ -48,6 +49,8 @@ export default function HeaderComponent() {
                     </nav>
                 </div>
             </div>
+
         </header>
+        </div>
     );
 }
