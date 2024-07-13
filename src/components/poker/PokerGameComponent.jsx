@@ -73,9 +73,7 @@ export default function PokerGameComponent(){
         if (values.date === "" || values.date === null ||! moment(values.date).isValid()) {
             errors.date = "Enter a valid date"
         }
-        if (values.endNight <= 0){
-            errors.endNight = "Enter a valid end of night"
-        }
+
         console.log(errors)
         return errors
     }

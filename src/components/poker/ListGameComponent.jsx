@@ -17,7 +17,7 @@ const ListPokerGameComponent = () => {
     const authContext = useAuth();
     const username = authContext.username;
     const nav = useNavigate();
-    const [totalNetNight, setTotalNetNight] = useState();
+    const [totalNetNight, setTotalNetNight] = useState(0);
     const netProfitChartRef = useRef();
 
     useEffect(() => {
@@ -29,7 +29,9 @@ const ListPokerGameComponent = () => {
         retrieveGamesUser(username)
             .then(response => {
                 const data = response.data;
+                data.sort((a, b) => new Date(a.date) - new Date(b.date));
                 setGames(data);
+
             })
             .catch(error => console.log(error));
     };
@@ -42,6 +44,7 @@ const ListPokerGameComponent = () => {
                 if (netProfitChartRef.current) {
                     netProfitChartRef.current.fetchData();
                 }
+                getTotalNetProfitLoss(username);
             })
             .catch(error => console.log(error));
     };
@@ -57,7 +60,7 @@ const ListPokerGameComponent = () => {
     const getTotalNetProfitLoss = username => {
         netProfitLoss(username)
             .then(response => {
-                setTotalNetNight(response.data);
+                response.data ? setTotalNetNight(response.data) : setTotalNetNight(0);
             })
             .catch(error => console.log(error));
     };
@@ -102,7 +105,7 @@ const ListPokerGameComponent = () => {
                     <Column field="netNight" header="Net of Night" body={netNightTemplate} />
                     <Column body={actionBodyTemplate} header="Actions" />
                 </DataTable>
-                <h2 className="total-net">Total Net: ${totalNetNight}</h2>
+                <h2 className="total-net">Total Net: ${totalNetNight.toFixed(2)} </h2>
                 <Button
                     label="Add Game"
                     icon="pi pi-plus"
