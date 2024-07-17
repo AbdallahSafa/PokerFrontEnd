@@ -1,6 +1,6 @@
 # Pokes Frontend
 
-Welcome to the frontend repository of the Pokes website, a platform where you can track your poker game performances, analyze your stats, and improve your strategy. This repository contains the React-based frontend code for the Pokes application.
+Welcome to the frontend repository of the Pokes website, a platform where you can track your poker game performances, analyze your stats, and improve your strategy. This repository contains the React-based frontend code for the Pokes application. The backend can be found [here]https://github.com/AbdallahSafa/Poker
 
 ## Table of Contents
 
